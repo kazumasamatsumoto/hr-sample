@@ -5,6 +5,10 @@ RUN apt-get update \
     && apt-get install -y zlib1g-dev libzip-dev mariadb-client \
     && docker-php-ext-install zip pdo_mysql
 
+# nodejs install
+RUN curl -sL https://deb.nodesource.com/setup_12.x | bash -
+RUN apt-get install -y nodejs
+
 #Composer install
 COPY --from=composer:latest /usr/bin/composer /usr/bin/composer
 
